@@ -1,0 +1,28 @@
+
+<br><br>
+<section class="login-block">
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 login-sec">
+		    <h2 class="text-center">Sing Up</h2>
+ <form class="login-form" [formGroup]="loginForm">
+
+  <div class="form-group">
+    <label >Email</label>
+    <input type="text" class="form-control" formControlName="email" placeholder="email"> 
+  </div>
+  <div class="form-group">
+    <label >Password</label>
+    <input type="password" class="form-control" formControlName="password" placeholder="password">
+  </div>
+  
+  <button type="submit" class="btn btn-login float-right" (click)="loginBtn()">Login</button>
+    
+  
+ </form>
+
+		</div>
+		
+</div>
+</div>
+</section>
