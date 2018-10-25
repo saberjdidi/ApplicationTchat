@@ -13,6 +13,10 @@ import { HomeComponent } from './home/home.component';
 import { ListusersComponent } from './listusers/listusers.component';
 import { SendmessageComponent } from './sendmessage/sendmessage.component';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+
 const routes : Routes = [
   {path : 'login', component : LoginComponent},
   {path : 'register', component : RgisterComponent},
@@ -40,6 +44,7 @@ const routes : Routes = [
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    SocketIoModule.forRoot(config),
   ],
   providers: [],
   bootstrap: [AppComponent]

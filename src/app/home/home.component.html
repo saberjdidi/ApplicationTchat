@@ -1,4 +1,4 @@
-
+<!--
 
 <table class="table table-striped table-bordered">
   <thead>
@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <!-- {{user | json}} -->
+    
     <tr *ngFor="let usr of user">
       <td>{{usr.name}}</td>
       <td>{{usr.lastname}}</td>
@@ -23,7 +23,7 @@
       <td class="td-actions">
        
         <button class="btn btn-info" role="button" routerLink="/send">
-          <!--bouton delet-->
+         
           send message
         </button>
       </td>
@@ -32,3 +32,35 @@
 
   </tbody>
 </table>
+
+<div class="container-fluid">
+  <h2>Application Tchat</h2>
+  <br><br>
+
+<div class="form-inline">
+<div class="form-group mb-2">
+    <label for="inputPassword2" >Username :</label> &nbsp;
+    <input type="text" class="form-control" [(ngModel)]="username"  placeholder="username">
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+      <label for="inputPassword2" >City :</label> &nbsp;
+    <select id="inputState" class="form-control" [(ngModel)]="city">
+      <option selected>Tabarka</option>
+      <option>Tunis</option>
+    </select>
+  </div>
+</div>  
+ 
+  <button type="submit" class="btn btn-primary mb-2" (click)="join()" >Join</button> &nbsp;
+  <button type="submit" class="btn btn-success mb-2">Leave</button>
+
+<div class="row">
+  <div class="well" style="height:200px; padding:15px;">
+    <div *ngFor="let item of messageArray">
+      <span><strong>{{item.username}}</strong> {{item.city}}</span>
+    </div>
+  </div>
+</div>
+
+</div>
+-->

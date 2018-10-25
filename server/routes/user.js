@@ -9,7 +9,10 @@ mongoose.connect('mongodb://localhost:27017/AppTchat', {
 });
 
 userSchema = require('../models/user');
-userModel = mongoose.model('users', userSchema)
+userModel = mongoose.model('users', userSchema);
+
+messageSchema = require('../models/message');
+messageModel = mongoose.model('message', messageSchema)
 
 router.post('/register', async(req, res) => {
     req.body.password = await bcrypt.hashSync(req.body.password);
@@ -45,5 +48,18 @@ router.put('/users/:id', async(req, res) => {
     const result = await userModel.update({_id: req.params.id}, {$set : req.body});
     res.send(result)
 });
+
+//post message
+router.post('/message', async(req, res) => {
+    const result = await messageModel.create(req.body);
+    req.io.emit('newmessage', result);
+    res.send(result);
+});
+//get message
+router.get('/message', async(req, res) => {
+    const result = await messageModel.find().populate({path : 'author'})
+    res.send(result)
+})
+
 
 module.exports = router;

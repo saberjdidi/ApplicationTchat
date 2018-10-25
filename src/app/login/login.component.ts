@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         console.log(res.json());
         if(res.json().message == 'ok'){
           localStorage.setItem('token', res.json().usertoken)
-          this.router.navigateByUrl('/home')
+          this.router.navigateByUrl('/send')
           
           console.log(this.loginForm.value);
           
