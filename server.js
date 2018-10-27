@@ -35,8 +35,6 @@ app.use(bodyparser.json());
 const user = require('./server/routes/user');
 app.use('/user', user);
 
-//const chat = require('./server/routes/chat');
-//app.use('/chat', chat);
 
 http.listen(port, err => {
   console.log(`connect with port${port}`)  

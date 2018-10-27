@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/send">{{userId.name}} {{userId.lastname}}</a>
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/send"><i class="fa fa-user"></i> &nbsp; {{userId.name}} {{userId.lastname}}</a>
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
@@ -7,16 +7,17 @@
     </li>
   </ul>
 </nav>
-<br><br><br>
-
+<br><br>
 <div class="container-fluid">
 <div class="container">
-  <h2>Application Tchat</h2>
-  <br><br>
+  
+  <h2 class=" text-center" style="color:cadetblue; text-transform:inherit;">Application Tchat</h2>
+  <br>
+  <!--
   <div class="col-6">
-<form [formGroup]="addForm">
+  <form [formGroup]="addForm">
 
- <div class="form-group">
+   <div class="form-group">
   <label><strong>Username :</strong></label>
   <input type="text" class="form-control" formControlName="username" >
   </div>
@@ -39,12 +40,11 @@
   
   <input type="submit" value="send message" (click)="sendmessage()" class="btn btn-primary " >
   <div class="clearfix"></div>
-</form>
+  </form>
 </div>
-
+-->
 </div>
-<br><br>
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row">
     <div class="col-8">
         <ul class="list-group">
@@ -53,5 +53,79 @@
     </div>
   </div>
     
+</div> -->
 </div>
-</div>
+
+
+<div class="container">
+  
+  <div class="messaging">
+        <div class="inbox_msg">
+            
+            <form [formGroup]="addForm">
+                <div class="mesgs">
+                  <div class="msg_history">
+                    <div class="incoming_msg">
+                      <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                     <!-- <div class="received_msg">
+                        <div class="received_withd_msg">
+                          <input type="text" class="form-control" formControlName="username" placeholder="username">
+                          </div>
+                      </div> -->
+                    </div>
+                    <br>
+                    <div class="received_msg">
+                      <div class="received_withd_msg">
+                          <label>City :</label>
+                        <select id="inputState" class="form-control" formControlName="city" >
+                          <option selected>Tabarka</option>
+                          <option>Tunis</option>
+                          <option>Kef</option>
+                          <option>Bizerte</option>
+                        </select>
+                       </div>
+                    </div>
+                    
+                  </div>
+                  <div class="type_msg">
+                    <div class="input_msg_write">
+                      <input type="text" class="write_msg" formControlName="message" placeholder="Type a message" />
+                      <button class="msg_send_btn" type="button" (click)="sendmessage()" ><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+          <div class="inbox_people">
+            <div class="headind_srch">
+              <div class="recent_heading">
+                <h4>Message</h4>
+              </div>
+              <div class="srch_bar">
+                <div class="stylish-input-group">
+                  <input type="text" class="search-bar"  placeholder="Search" >
+                  <span class="input-group-addon">
+                  <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+                  </span> </div>
+              </div>
+            </div>
+            <div class="inbox_chat">
+              <div class="chat_list active_chat" *ngFor="let com of user">
+                <div class="chat_people">
+                  <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" (click)="deleteBtn(com._id)" > </div>
+                  <div class="chat_ib">
+                    <h5>{{com.author.name}} <span class="chat_date">{{com.date}}</span></h5>
+                    <h5>{{com.city}}</h5>
+                    <p>{{com.message}}</p>
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+          
+          
+        </div>
+      
+        
+      </div></div>

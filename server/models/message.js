@@ -4,7 +4,11 @@ const message = new mongoose.Schema({
    
     message : String,
     city : String,
-    username : String,
+    //username : String,
+    date : {
+        type :Date,
+        default : Date.now()
+    },
     author:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'

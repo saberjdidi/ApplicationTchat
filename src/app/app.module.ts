@@ -10,10 +10,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from'@angular/http';
 import {RouterModule, Routes} from'@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ListusersComponent } from './listusers/listusers.component';
 import { SendmessageComponent } from './sendmessage/sendmessage.component';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { AuthGuard } from './auth.guard';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -21,8 +21,7 @@ const routes : Routes = [
   {path : 'login', component : LoginComponent},
   {path : 'register', component : RgisterComponent},
   {path : 'home', component : HomeComponent},
-  {path : 'user', component : ListusersComponent},
-  {path : 'send', component : SendmessageComponent},
+  {path : 'send', component : SendmessageComponent, canActivate: [AuthGuard]},
   {path : '', pathMatch: 'full', redirectTo: 'login'}
  
 
@@ -35,7 +34,6 @@ const routes : Routes = [
     LoginComponent,
     UserComponent,
     HomeComponent,
-    ListusersComponent,
     SendmessageComponent
   ],
   imports: [

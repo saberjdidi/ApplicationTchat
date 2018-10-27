@@ -27,7 +27,7 @@ export class SendmessageComponent implements OnInit {
     
     this.addForm = new FormGroup({
      //author: new FormControl(''),
-     username: new FormControl(''),
+     //username: new FormControl(''),
      message: new FormControl(''),
      city: new FormControl(''),
       
@@ -55,11 +55,20 @@ export class SendmessageComponent implements OnInit {
       const object = {
            "message" : this.addForm.value.message,
            "city" : this.addForm.value.city,
-           "username" : this.addForm.value.username,
+           //"username" : this.addForm.value.username,
            "author": firstname
       }
      
       this.apiService.postmessage(object).subscribe(res => {
+        this.ngOnInit();
+        console.log(res.json());
+      });
+    }
+  }
+
+  deleteBtn(id){
+    if(confirm('are you sure to delete this message') == true){
+      this.apiService.deletemessage(id).subscribe(res => {
         this.ngOnInit();
         console.log(res.json());
       });

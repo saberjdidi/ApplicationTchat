@@ -59,7 +59,13 @@ router.post('/message', async(req, res) => {
 router.get('/message', async(req, res) => {
     const result = await messageModel.find().populate({path : 'author'})
     res.send(result)
-})
+});
+//delete message
+router.delete('/message/:id', async (req, res) => {
+    const result = await messageModel.remove({_id : req.params.id});
+    req.io.emit('newmessage', result)
+    res.send(result)
+});
 
 
 module.exports = router;

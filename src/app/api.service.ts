@@ -35,6 +35,9 @@ export class ApiService {
   getmessage(){
     return this.http.get('http://localhost:3000/user/message')
   }
+  deletemessage(id){
+    return this.http.delete('http://localhost:3000/user/message/' + id)
+  }
 
   newMessage(){
     return this.socket
