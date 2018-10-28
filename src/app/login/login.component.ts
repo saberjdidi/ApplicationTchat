@@ -29,8 +29,17 @@ export class LoginComponent implements OnInit {
         console.log(res.json());
         if(res.json().message == 'ok'){
           localStorage.setItem('token', res.json().usertoken)
+
+         const token = localStorage.getItem('token');
+         const roles = jwt_decode(token).data.role;
+
+         if(roles == 'admin'){
+          this.router.navigateByUrl('/admin') 
+         }
+         if(roles == 'user'){
           this.router.navigateByUrl('/send')
-          
+         }
+
           console.log(this.loginForm.value);
           
         }

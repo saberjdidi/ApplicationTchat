@@ -15,10 +15,7 @@ export class ApiService {
   registerApi(form){
     return this.http.post('http://localhost:3000/user/register', form)
   }
-
-  postuser(form){
-    return this.http.post('http://localhost:3000/user/users', form)
-  }
+  
   getuser(){
     return this.http.get('http://localhost:3000/user/users')
   }

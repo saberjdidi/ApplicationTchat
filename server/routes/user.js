@@ -20,6 +20,7 @@ router.post('/register', async(req, res) => {
         res.send(err)
         return
     });
+    req.io.emit('newmessage', result);
     res.send(result)
 });
 
